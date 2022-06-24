@@ -2,7 +2,7 @@ import { Header } from '../components/Header';
 import { Lesson } from '../components/Lesson';
 import { Sidebar } from '../components/Sidebar';
 
-export function Event () {
+export function Event() {
   return (
     <>
       <Header />
@@ -11,7 +11,7 @@ export function Event () {
         <Lesson />
 
         <Sidebar />
-      </main>      
+      </main>
     </>
   );
 }

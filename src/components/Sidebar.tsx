@@ -25,11 +25,10 @@ type GetLessonsQueryData = {
 }
 
 export function Sidebar() {
-
   const { data } = useQuery<GetLessonsQueryData>(GET_LESSONS_QUERY);
 
   return (
-    <aside className="max-w-[21.75rem] flex flex-col gap-8 p-6 bg-gray-700">
+    <aside className="w-full max-w-[23.5rem] flex flex-col gap-8 p-6 bg-gray-700">
       <span className="text-white text-bold text-2xl after:h-0.5 after:my-6 after:bg-gray-500">
         lessons schedule
       </span>
@@ -48,7 +47,7 @@ export function Sidebar() {
                   availableAt={lesson.availableAt}
                 />
               </li>
-            )
+            );
           })
         }
       </ul>
