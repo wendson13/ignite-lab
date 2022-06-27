@@ -118,7 +118,7 @@ export function Lesson() {
 
           <LinkCard
             href="#"
-            title="exclusive wallpapers"
+            title="Exclusive wallpapers"
             description="Download exclusive Ignite Lab wallpapers and customize your machine"
             icon={Image}
           />
