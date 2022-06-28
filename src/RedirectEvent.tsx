@@ -1,25 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
 import { CircleNotch } from 'phosphor-react';
 import { Navigate } from 'react-router-dom';
-
-const GET_SLUG_FIRST_LESSON_QUERY = gql`
-  query {
-    lessons(first: 1) {
-      slug
-    }
-  }
-`;
-
-type GetSlugFirstLessonData = {
-  lessons: [
-    {
-      slug: string;
-    }
-  ]
-}
+import { useGetSlugFirstLessonQuery } from './graphql/generated';
 
 export const RedirectEvent = () => {
-  const { data } = useQuery<GetSlugFirstLessonData>(GET_SLUG_FIRST_LESSON_QUERY);
+  const { data } = useGetSlugFirstLessonQuery();
 
   const slug = data?.lessons[0].slug;
 

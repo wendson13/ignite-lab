@@ -1,51 +1,13 @@
-import { gql, useQuery } from '@apollo/client';
 import { CircleNotch, DiscordLogo, FileArrowDown, Image, Lightning } from 'phosphor-react';
 import { useParams } from 'react-router-dom';
+import { useGetLessonBySlugQuery } from '../graphql/generated';
 import { Button } from './Button';
 import { Footer } from './Footer';
 import { LinkCard } from './LinkCard';
 
-const GET_LESSON_BY_SLUG = gql`
-  query GetLessonBySlug($slug: String) {
-    lesson(where: {slug: $slug}) {
-      slug
-      title
-      description
-      videoId
-      teacher {
-        name
-        bio
-        avatarURL
-      }
-      challenge {
-        url
-      }
-    }
-  }
-`;
-
-type GetLessonBySlugData = {
-  lesson: {
-    title: string;
-    slug: string;
-    description: string;
-    videoId: string;
-
-    teacher: {
-      name: string;
-      bio: string;
-      avatarURL: string;
-    };
-
-    challenge: {
-      url: string;
-    }
-  }
-}
-
 export function Lesson() {
   const { slug } = useParams<{ slug: string }>();
-  const { data } = useQuery<GetLessonBySlugData>(GET_LESSON_BY_SLUG, {
+  const { data } = useGetLessonBySlugQuery({
     variables: { slug }
   });
 
@@ -99,12 +61,12 @@ export function Lesson() {
         <div className="flex items-center gap-4">
           <img
             className="rounded-full w-16 h-16 border border-blue-500"
-            src={data?.lesson.teacher.avatarURL}
-            alt={data?.lesson.teacher.name}
+            src={data.lesson.teacher?.avatarURL}
+            alt={data.lesson.teacher?.name}
           />
           <div className="flex flex-col max-w-xs">
-            <strong className="font-bold text-2xl">{data?.lesson.teacher.name}</strong>
-            <span className="text-sm text-gray-200 truncate leading-8">{data?.lesson.teacher.bio}</span>
+            <strong className="font-bold text-2xl">{data.lesson.teacher?.name}</strong>
+            <span className="text-sm text-gray-200 truncate leading-8">{data?.lesson.teacher?.bio}</span>
           </div>
         </div>
 

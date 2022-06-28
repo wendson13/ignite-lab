@@ -1,19 +1,11 @@
-import { gql, useMutation } from '@apollo/client';
 import { CircleNotch } from 'phosphor-react';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Footer } from '../components/Footer';
-
-const CREATE_SUBSCRIPTION_QUERY = gql`
-  mutation MyMutation($name: String!, $email: String!) {
-  createSubscriber(data: {name: $name, email: $email}) {
-    id
-  }
-}
-`;
+import { useCreateSubscriptionMutation } from '../graphql/generated';
 
 export function Subscriber() {
-  const [createSubscriber, { loading }] = useMutation(CREATE_SUBSCRIPTION_QUERY);
+  const [createSubscriber, { loading }] = useCreateSubscriptionMutation();
   const navigation = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
