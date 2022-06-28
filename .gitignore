@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 codegen.yaml
-generated.ts
 
 # Editor directories and files
 .vscode/*
