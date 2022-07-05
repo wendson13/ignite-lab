@@ -13,7 +13,7 @@ export function Lesson() {
 
   if (!data || !data.lesson) {
     return (
-      <div className="min-h-screen flex-1 flex justify-center items-center text-blue-500">
+      <div className="h-screen flex-1 flex justify-center items-center text-blue-500">
         <CircleNotch weight="bold" size={100} className="animate-spin" />
       </div>
     );
@@ -30,21 +30,33 @@ export function Lesson() {
           frameBorder="0" />
       </div>
 
-      <div className="flex flex-col gap-6 p-8">
-        <div className="flex justify-between gap-4">
-          <div className="flex flex-col gap-4 max-w-[70%]">
+      <div className="flex flex-col gap-6 p-6 md:p-8">
+        <div className="flex flex-col justify-between gap-4 lg:flex-row">
+          <div className="flex flex-col gap-8 lg:max-w-[70%] lg:gap-4">
             <h1 className="font-bold text-2xl">{data.lesson.title}</h1>
             <p className="text-gray-200 leading-relaxed">{data.lesson.description}</p>
+
+            <div className="flex items-center gap-4">
+              <img
+                className="rounded-full w-16 h-16 border border-blue-500"
+                src={data.lesson.teacher?.avatarURL}
+                alt={data.lesson.teacher?.name}
+              />
+              <div className="flex flex-col w-52 md:max-w-sm">
+                <strong className="font-bold text-2xl">{data.lesson.teacher?.name}</strong>
+                <span className="text-sm text-gray-200 truncate leading-8">{data?.lesson.teacher?.bio}</span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 my-4 lg:my-0">
             <Button
               As="a"
               href="https://discord-service.rocketseat.dev/signin/ignite-lab"
               type='primary'
               Icon={DiscordLogo}
             >
-              community on discord
+              Community on discord
             </Button>
 
             <Button
@@ -58,28 +70,16 @@ export function Lesson() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <img
-            className="rounded-full w-16 h-16 border border-blue-500"
-            src={data.lesson.teacher?.avatarURL}
-            alt={data.lesson.teacher?.name}
-          />
-          <div className="flex flex-col max-w-xs">
-            <strong className="font-bold text-2xl">{data.lesson.teacher?.name}</strong>
-            <span className="text-sm text-gray-200 truncate leading-8">{data?.lesson.teacher?.bio}</span>
-          </div>
-        </div>
-
-        <div className="flex gap-8 my-20">
+        <div className="flex gap-8 my-20 flex-wrap">
           <LinkCard
-            href="#"
+            href=""
             title="Complementary material"
             description="Access supplemental material to accelerate your development"
             icon={FileArrowDown}
           />
 
           <LinkCard
-            href="#"
+            href=""
             title="Exclusive wallpapers"
             description="Download exclusive Ignite Lab wallpapers and customize your machine"
             icon={Image}

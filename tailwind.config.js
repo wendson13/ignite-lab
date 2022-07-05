@@ -6,8 +6,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        blur: 'url(\'/bg-blur.png\')',
-        coding: 'url(\'/bg-react-coding.png\')'
+        blur: 'url(bg-blur.png)',
+        blurMobile: 'url(bg-blur-mobile.png)',
+        coding: 'url(bg-react-coding.png)',
+        react: 'url(react-logo.png)'
       },
       fontFamily: 'Roboto, sans-serif',
       colors: {
@@ -34,6 +36,14 @@ module.exports = {
           700: '#121214',
           900: '#09090A'
         }
+      },
+      keyframes: {
+        rotation: {
+          to: { transform: 'rotate(180deg)' }
+        }
+      },
+      animation: {
+        rotation: 'rotation .3s linear forwards'
       }
     }
   },

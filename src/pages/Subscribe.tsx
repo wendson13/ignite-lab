@@ -54,9 +54,9 @@ export function Subscriber() {
 
   return (
     <>
-      <main className="min-h-screen flex justify-center items-start bg-coding bg-no-repeat bg-contain bg-center before:absolute before:inset-x-0 before:w-full before:min-h-screen before:bg-blur before:bg-no-repeat before:bg-cover before:bg-center before:-z-10">
-        <div className="w-full flex justify-around items-center p-4 gap-4 mt-20">
-          <div className="max-w-2xl flex flex-col gap-6">
+      <main className={'h-full flex flex-col bg-react bg-no-repeat bg-top bg-contain before:fixed before:inset-x-0 before:w-full before:h-full before:no-repeat before:bg-blur before:bg-cover before:-z-10 md:bg-auto'}>
+        <div className="w-full flex justify-around items-center flex-wrap gap-8 mt-4 md:flex-nowrap md:mt-20 md:gap-4 sm:p-4">
+          <div className="max-w-2xl flex flex-col gap-6 p-4 sm:p-0">
             <img
               className="w-52"
               src="/logo.svg"
@@ -71,7 +71,7 @@ export function Subscriber() {
             </p>
           </div>
 
-          <aside className="min-w-[24rem] flex flex-col gap-6 p-8 rounded border border-gray-500 bg-gray-700">
+          <aside className="min-w-full flex flex-col gap-6 p-8 rounded border-t border-b border-gray-500 bg-gray-700 sm:min-w-[24rem] sm:border">
             <strong className="text-2xl">Sign up for free</strong>
 
             <form onSubmit={handleSendingSubscription} className="flex flex-col gap-2">
@@ -124,6 +124,12 @@ export function Subscriber() {
             </form>
           </aside>
         </div>
+
+        <img
+          className="object-contain self-center -z-10"
+          src="/react-coding.png"
+          alt="react coding"
+        />
       </main>
 
       <Footer />

@@ -10,16 +10,16 @@ type LinkCardProps = {
 export function LinkCard({ title, description, icon: Icon, href = '#' }: LinkCardProps) {
   return (
     <a
-      className="flex-1 flex bg-gray-700 transition-colors rounded overflow-hidden hover:bg-gray-600"
+      className="min-w-[15rem] flex-1 flex bg-gray-700 transition-colors rounded overflow-hidden hover:bg-gray-600"
       href={href}
       target="_blank"
       rel="noreferrer"
     >
-      <div className="h-full flex items-center p-6 bg-green-700">
+      <div className="h-full flex items-center p-4 bg-green-700 md:p-6">
         <Icon size={40} />
       </div>
 
-      <div className="flex-1 flex items-center justify-between p-6">
+      <div className="flex-1 flex items-center justify-between p-4 md:p-6">
         <div className="max-w-[70%] flex flex-col gap-2">
           <strong className="text-2xl">{title}</strong>
           <p className="text-gray-200 leading-relaxed text-sm">{description}</p>
